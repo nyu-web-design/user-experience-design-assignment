@@ -16,7 +16,7 @@ On top of these requirements, you are welcome to add any additional work that yo
 
 ### Wireframes
 
-Use [draw.io](https://draw.io) to draft mobile** wireframes for the **mobile version\*\* your imaginary site.
+Use [draw.io](https://draw.io) to draft **mobile wireframes** for the **mobile version** your imaginary site.
 
 - create one wireframe for each distinct page of the site
 - if there are interactive behaviors you are proposing for the site, such as content that appears dynamically on a page when the user hovers or clicks on something, be sure to create a version of the wireframess for those pages without the dynamic content displayed, and another version with the dynamic content displayed.
