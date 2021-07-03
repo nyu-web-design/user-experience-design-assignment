@@ -50,7 +50,4 @@ class Tests:
     """
     target_terms = ['User Experience']
     for term in target_terms:
-      elem_capitalized = driver.find_element_by_partial_link_text(term.capitalize())
-      elem_lower = driver.find_element_by_partial_link_text(term.lower())
-      assert elem_capitalized or elem_lower # check that a matching element exists
-
+      assert driver.find_element_by_partial_link_text(term) or driver.find_element_by_partial_link_text(term.lower())
