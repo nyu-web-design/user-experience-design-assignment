@@ -34,8 +34,14 @@ Export the site map diagram as a `.png` file - you will post it to your personal
 
 Use the Prototype feature of [InvisionApp](https://invision.com/) to create a clickable **mobile** prototype.
 
+When creating a clickable prototype, meet the following minimal requirements:
+
 - upload the `.png` images of your wireframes to an InvisionApp project
-- set hotspots on each wireframe such that a viewer can click on the wireframes to see an approximation of how the real web site will function. Everything that you are intending to be clickable on the final site should be clickable on the prototype.
+- set hotspots on each wireframe such that a viewer can click on the wireframes to see an approximation of how the real web site will function.
+- everything that you are intending to be clickable on the final site should be clickable on the prototype.
+- all buttons, links or other user interface components that allow a user to navigate from one screen to another must be functional in the prototype
+- create as many variations of your existing wireframe diagrams as you need in order to make the prototype look "believable"; give a real sense of how the application flow might work... don't take shortcuts.
+- your prototypes must be designed to clearly show the way in which a user navigates from one screen to another, as well as how they solve the core use cases and needs your web site is designed to solve.
 
 Copy a link to your prototype. You will publish this link later to your personal web site.
 
