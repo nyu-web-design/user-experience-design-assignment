@@ -3,7 +3,12 @@
   "hooks": {
     "afterFileEdit": [
       {
-        "command": "python3 \"$CURSOR_PROJECT_DIR/.automations/give-student-credit.py\" --event=cursor || python \"$CURSOR_PROJECT_DIR/.automations/give-student-credit.py\" --event=cursor"
+        "command": "python3 \"$CURSOR_PROJECT_DIR/.automations/give-student-credit.py\" --tool=cursor --event=afterFileEdit || python \"$CURSOR_PROJECT_DIR/.automations/give-student-credit.py\" --tool=cursor --event=afterFileEdit"
+      }
+    ],
+    "afterTabFileEdit": [
+      {
+        "command": "python3 \"$CURSOR_PROJECT_DIR/.automations/give-student-credit.py\" --tool=cursor --event=afterTabFileEdit || python \"$CURSOR_PROJECT_DIR/.automations/give-student-credit.py\" --tool=cursor --event=afterTabFileEdit"
       }
     ]
   }

@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 \"$CLAUDE_PROJECT_DIR/.automations/give-student-credit.py\" --event=claude || python \"$CLAUDE_PROJECT_DIR/.automations/give-student-credit.py\" --event=claude"
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.automations/give-student-credit.py\" --tool=claude --event=PostToolUse || python \"$CLAUDE_PROJECT_DIR/.automations/give-student-credit.py\" --tool=claude --event=PostToolUse"
           }
         ]
       }
