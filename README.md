@@ -1,4 +1,4 @@
-# User Experience Design
+# User Experience Design Exercise
 
 Welcome! In this assignment, you will work on designing the user experience of an imaginary web site consisting of no less than 5 pages. In particular, you will...
 
@@ -55,23 +55,23 @@ Before updating your personal site, copy all files from your existing personal w
 
 #### Page heading
 
-This page must have the general heading, `<h1>Use Exeperience Design</h1>`.
+This page must have the general heading, `<h1>User Experience Design</h1>`.
 
 #### Prototype section
 
-Create a `<section class='prototype'>` element with an `<h2>` heading that says, "`Clickable Prototype`".
+Create a `<section class="prototype">` element with an `<h2>` heading that says, "`Clickable Prototype`".
 
 - use an `<a>` element to take visitors to your clickable prototype on InvisionApp when the link is clicked.
 
 #### Wireframe section
 
-Create a `<section class='wireframes'>` element with an `<h2>` heading that says, "`Wireframes`".
+Create a `<section class="wireframes">` element with an `<h2>` heading that says, "`Wireframes`".
 
 - use `<img>` elements to publish each of your imaginary site's wireframe diagrams to this page. Style them so that they fit comfortably onto the page yet are eassy to view when viewed on a typical desktop web browser.
 
 #### Site Map section
 
-Create a `<sectionclass='site_map'>` element with an `<h2>` heading that says, "`Site Map`".
+Create a `<section class="site_map">` element with an `<h2>` heading that says, "`Site Map`".
 
 - use an `<img>` element to publish your imaginary site's site map diagram to this page. Style it so that it fits comfortably onto the page yet is eassy to view when viewed on a typical desktop web browser.
 

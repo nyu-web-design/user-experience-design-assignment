@@ -1,53 +1,58 @@
 """
-Tests for the basic content of an index.html file of a web site with a particular set of content.
+Tests for the basic content of the index.html file of a personal web site.
 
-Selenium webdriver for Chrome (a.k.a. the file named chromedriver) must be installed in either:
-- in the same directory as chrome.exe on Windows (e.g. C:\Program Files\Google\Chrome\Application)
-- in a directory that is included in the PATH on Mac OS X (e.g. /usr/local/bin)
+Requires Selenium 4.6+ (uses Selenium Manager to auto-manage chromedriver)
+and a recent installation of Google Chrome.
 """
 
-import pytest
 import json
+import pytest
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
+
+
+def _build_url(site_url, page=""):
+  base = site_url.rstrip("/")
+  if not page:
+    return base + "/"
+  return base + "/" + page.lstrip("/")
+
 
 class Tests:
 
   @pytest.fixture(scope="class")
   def settings(self):
-    settings = json.load(open('./settings.json', 'r'))
-    yield settings
+    with open('./settings.json', 'r') as f:
+      yield json.load(f)
 
   @pytest.fixture(scope="class")
   def driver(self, settings):
-    """
-    Pop open a web browser and make it available to the tests.
-    """
-    print(settings["site_url"])
-
-    # set up the fixture
-    driver = webdriver.Chrome()
-    driver.get(settings["site_url"]) # load the site from the settings file
-    # provide the fixture value
-    yield driver  
-    # now tear it down
-    driver.close()
+    options = Options()
+    options.add_argument("--window-size=1400,1000")
+    driver = webdriver.Chrome(options=options)
+    driver.get(_build_url(settings["site_url"]))
+    yield driver
+    driver.quit()
 
   def test_link_href_exists(self, driver):
-    """
-    Check url of links to assignment page.
-    """
-    target_urls = ['user_experience_design.html']
-    for url in target_urls:
-      # check for hrefs with either single or double quotes
-      elem_option1 = driver.find_element_by_xpath('//a[@href="' + url + '"]')
-      elem_option2 = driver.find_element_by_xpath("//a[@href='" + url + "']")
-      assert elem_option1 or elem_option2 # check that it exists
+    """The home page must link to user_experience_design.html."""
+    try:
+      elem = driver.find_element(
+        By.CSS_SELECTOR,
+        "a[href='user_experience_design.html'], "
+        "a[href$='/user_experience_design.html']",
+      )
+    except NoSuchElementException:
+      elem = None
+    assert elem, "No link to 'user_experience_design.html' was found on the home page."
 
   def test_link_text_exists(self, driver):
-    """
-    Check text of links to all assignment pages.
-    """
-    target_terms = ['User Experience']
-    for term in target_terms:
-      assert driver.find_element_by_partial_link_text(term) or driver.find_element_by_partial_link_text(term.lower())
+    """At least one link must mention 'User Experience'."""
+    elems_text = ''.join(
+      x.text.lower() for x in driver.find_elements(By.CSS_SELECTOR, "a")
+    )
+    assert 'user experience' in elems_text, (
+      "No link text mentions 'User Experience'."
+    )
